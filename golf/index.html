@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Golf, a Card Game</title>
 </head>
+
 <body class="p-1">
     <header>
         <h3>Golf</h3>
@@ -15,63 +18,76 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-primary" id="start-game" onClick="shuffle(cards);placeCards()">Start Game</button>
+                    <button type="button" class="btn btn-primary" id="start-game"
+                        onClick="placeCards()">Start Game</button>
                     <button type="button" class="btn btn-danger" id="restart">Restart</button>
                 </div>
             </div>
             <div class="row" id="card-pool">
                 <div class="col">
-                    <div id="deck">Deck of Cards</div>
+                    <img id="deck" class="card-size" src="PNG/red_back.png" onclick="flipNewAvailable();">
                 </div>
                 <div class="col">
-                    <div id="available">Card Available</div>
+                    <img id="available" class="card-size" src="">
                 </div>
             </div>
         </div>
         <div class="container" id="players-cards">
             <div class="row">
-                <p>Your Cards</p>
-            </div>
-            <div class="row">
                 <div class="col">
-                    <img id="pl-1" class="card-size">
-                    <img id="pl-2" class="card-size">
-                    <img id="pl-3" class="card-size">
+                    <div class="row">
+                        <p>Your Cards</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img id="pl1" class="card-size" onClick="handleCardClick(this.id, 0)">
+                            <img id="pl2" class="card-size" onClick="handleCardClick(this.id, 1)">
+                            <img id="pl3" class="card-size" onClick="handleCardClick(this.id, 2)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img id="pl4" class="card-size" onClick="handleCardClick(this.id, 3)">
+                            <img id="pl5" class="card-size" onClick="handleCardClick(this.id, 4)">
+                            <img id="pl6" class="card-size" onClick="handleCardClick(this.id, 5)">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <img id="pl-4" class="card-size">              
-                    <img id="pl-5" class="card-size">
-                    <img id="pl-6" class="card-size">
-                </div>
-            </div>
-        </div>
-        <div class="container" id="pc-cards">
-            <div class="row">
-                <p>Opponent's Cards</p>
-            </div>
-            <div class="row">
-                
-                <div class="col">
-                    <img id="pc-1" class="card-size">
-                    <img id="pc-2" class="card-size">
-                    <img id="pc-3" class="card-size">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <img id="pc-4" class="card-size">              
-                    <img id="pc-5" class="card-size">
-                    <img id="pc-6" class="card-size">
+            <div class="col">
+                <div class="container" id="pc-cards">
+                    <div class="row">
+                        <p>Opponent's Cards</p>
+                    </div>
+                    <div class="row">
+
+                        <div class="col">
+                            <img id="pc1" class="card-size" onClick="">
+                            <img id="pc2" class="card-size" onClick="">
+                            <img id="pc3" class="card-size" onClick="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img id="pc4" class="card-size" onClick="">
+                            <img id="pc5" class="card-size" onClick="">
+                            <img id="pc6" class="card-size" onClick="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
     <script src="golf.js"></script>
 </body>
+
 </html>
