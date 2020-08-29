@@ -1,3 +1,14 @@
 .card-size {
     width: 100px;
 }
+
+.card-paired-top {
+    position: relative;
+    top:50px;
+
+}
+
+.card-paired-bottom {
+    position: relative;
+    bottom:50px;
+}
