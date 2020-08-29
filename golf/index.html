@@ -15,8 +15,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-primary">Start Game</button>
-                    <button type="button" class="btn btn-danger">Restart</button>
+                    <button type="button" class="btn btn-primary" id="start-game" onClick="shuffle(cards);placeCards()">Start Game</button>
+                    <button type="button" class="btn btn-danger" id="restart">Restart</button>
                 </div>
             </div>
             <div class="row" id="card-pool">
@@ -30,46 +30,40 @@
         </div>
         <div class="container" id="players-cards">
             <div class="row">
+                <p>Your Cards</p>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <img id="pl-1">
-                    <img id="pl-2">
-                    <img id="pl-3">
+                    <img id="pl-1" class="card-size">
+                    <img id="pl-2" class="card-size">
+                    <img id="pl-3" class="card-size">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <img id="pl-4">
-                </div>
-                <div class="col">
-                    <img id="pl-5">
-                </div>
-                <div class="col">
-                    <img id="pl-6">
+                    <img id="pl-4" class="card-size">              
+                    <img id="pl-5" class="card-size">
+                    <img id="pl-6" class="card-size">
                 </div>
             </div>
         </div>
-
         <div class="container" id="pc-cards">
             <div class="row">
+                <p>Opponent's Cards</p>
+            </div>
+            <div class="row">
+                
                 <div class="col">
-                    <div id="pc-1">PC's First Card</div>
-                </div>
-                <div class="col">
-                    <div id="pc-2">PC's Second Card</div>
-                </div>
-                <div class="col">
-                    <div id="pc-3">PC's Third Card</div>
+                    <img id="pc-1" class="card-size">
+                    <img id="pc-2" class="card-size">
+                    <img id="pc-3" class="card-size">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <div id="pc-4">PC's Fourth Card</div>
-                </div>
-                <div class="col">
-                    <div id="pc-5">PC's Fifth Card</div>
-                </div>
-                <div class="col">
-                    <div id="pc-6">PC's Sixth Card</div>
+                    <img id="pc-4" class="card-size">              
+                    <img id="pc-5" class="card-size">
+                    <img id="pc-6" class="card-size">
                 </div>
             </div>
         </div>

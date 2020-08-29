@@ -1,4 +1,4 @@
-deck = [
+let cards = [
     "ace-spades","ace-clubs","ace-hearts","ace-diamonds",
     "two-spades","two-clubs","two-hearts","two-diamonds",
     "three-spades","three-clubs","three-hearts","three-diamonds",
@@ -26,7 +26,9 @@ var pc3 = document.getElementById("pc-3");
 var pc4 = document.getElementById("pc-4");
 var pc5 = document.getElementById("pc-5");
 var pc6 = document.getElementById("pc-6");
-
+const deck = document.getElementById("deck");
+const startGame = document.getElementById("start-game");
+const restart = document.getElementById("restart");
 
 function shuffle(arra1) {
     let ctr = arra1.length;
@@ -48,18 +50,18 @@ function shuffle(arra1) {
 }
 
 function placeCards() {
-    pl1.classList.add("card-size");
-    pl2.classList.add("card-size");
-    pl3.classList.add("card-size");
-    pl4.classList.add("card-size");
-    pl5.classList.add("card-size");
-    pl6.classList.add("card-size");
-    pl1.src = "PNG/" + deck[0] + ".png";
-    pl2.src = "PNG/" + deck[1] + ".png";
-    pl3.src = "PNG/" + deck[2] + ".png";
-    pl4.src = "PNG/" + deck[3] + ".png";
-    pl5.src = "PNG/" + deck[4] + ".png";
-    pl6.src = "PNG/" + deck[5] + ".png";
-}
+    shuffle(cards);
+    pl1.src = "PNG/" + cards[0] + ".png";
+    pl2.src = "PNG/" + cards[1] + ".png";
+    pl3.src = "PNG/" + cards[2] + ".png";
+    pl4.src = "PNG/" + cards[3] + ".png";
+    pl5.src = "PNG/" + cards[4] + ".png";
+    pl6.src = "PNG/" + cards[5] + ".png";
 
-console.log(shuffle(deck));
+    pc1.src = "PNG/" + cards[6] + ".png";
+    pc2.src = "PNG/" + cards[7] + ".png";
+    pc3.src = "PNG/" + cards[8] + ".png";
+    pc4.src = "PNG/" + cards[9] + ".png";
+    pc5.src = "PNG/" + cards[10] + ".png";
+    pc6.src = "PNG/" + cards[11] + ".png";
+}
