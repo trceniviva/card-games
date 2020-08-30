@@ -22,6 +22,8 @@ let oppCardsFlipped = 0;
 let oppFlipped = [];
 let availableCard = "";
 
+let cardInHand = "";
+
 // Elements holding Player's cards
 var pl1 = document.getElementById("pl1");
 var pl2 = document.getElementById("pl2");
@@ -117,6 +119,20 @@ function placeCards() {
 }
 
 function handleCardClick(cardClicked, cardNumber) {
+    if (cardInHand != "") {
+        document.getElementById(cardClicked).src = "PNG/" + cardInHand + ".png";
+        if (cardClicked === 'pl1') {player.card1 = cardInHand.split(/\s*\-\s*/g)[0]};
+        if (cardClicked === 'pl2') {player.card2 = cardInHand.split(/\s*\-\s*/g)[0]};
+        if (cardClicked === 'pl3') {player.card3 = cardInHand.split(/\s*\-\s*/g)[0]};
+        if (cardClicked === 'pl4') {player.card4 = cardInHand.split(/\s*\-\s*/g)[0]};
+        if (cardClicked === 'pl5') {player.card5 = cardInHand.split(/\s*\-\s*/g)[0]};
+        if (cardClicked === 'pl6') {player.card6 = cardInHand.split(/\s*\-\s*/g)[0]};
+        flipNewAvailable();
+        checkForMatches();
+        cardInHand = "";
+    } else {
+
+
     if (playerCardsFlipped < 2) {
         document.getElementById(cardClicked).src = "PNG/" + cards[cardNumber] + ".png";
         playerTurn = false;
@@ -137,7 +153,7 @@ function handleCardClick(cardClicked, cardNumber) {
     if (cardClicked === 'pl4') {player.card4 = cards[3].split(/\s*\-\s*/g)[0]};
     if (cardClicked === 'pl5') {player.card5 = cards[4].split(/\s*\-\s*/g)[0]};
     if (cardClicked === 'pl6') {player.card6 = cards[5].split(/\s*\-\s*/g)[0]};
-    checkForMatches();
+    checkForMatches();}
 }
 
 function flipOppCards() {
@@ -194,6 +210,7 @@ function checkForMatches() {
 function flipNewAvailable() {
     i = i +1;
     available.src = "PNG/" + cards[i] + ".png";
+    availableCard = cards[i];
 }
 
 function unpairAllCards() {
@@ -209,6 +226,10 @@ function unpairAllCards() {
     pl4.classList.remove("card-paired-bottom")
     pl5.classList.remove("card-paired-bottom")
     pl6.classList.remove("card-paired-bottom")
+}
+
+function opponentTurn() {
+    
 }
 
 function resetPlayers() {
@@ -231,4 +252,8 @@ function resetPlayers() {
         card6: "6",
         score: 0
     }
+}
+
+function takeAvailable() {
+    cardInHand = availableCard;
 }

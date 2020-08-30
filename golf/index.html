@@ -15,25 +15,29 @@
         <h3>Golf</h3>
     </header>
     <main>
-        <div class="container">
+        <div class="container text-center">
             <div class="row">
+                
                 <div class="col">
                     <button type="button" class="btn btn-primary" id="start-game"
                         onClick="placeCards()">Start Game</button>
                     <button type="button" class="btn btn-danger" id="restart">Restart</button>
                 </div>
             </div>
-            <div class="row" id="card-pool">
+            <div class="row mt-5" id="card-pool">
+                <div class="col col-4"></div>
                 <div class="col">
                     <img id="deck" class="card-size" src="PNG/red_back.png" onclick="flipNewAvailable();">
                 </div>
                 <div class="col">
-                    <img id="available" class="card-size" src="">
+                    <img id="available" class="card-size" src="" onclick="takeAvailable();">
                 </div>
+                <div class="col col-4"></div>
             </div>
         </div>
         <div class="container mt-5">
             <div class="row">
+                
                 <div class="col" id="players-cards">
                     <div class="row">
                         <p>Your Cards</p>
@@ -53,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+                
             <div class="col">
                 <div class="container" id="pc-cards">
                     <div class="row">
